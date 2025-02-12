@@ -13,7 +13,7 @@ const navItems = [
 
 const socialLinks = {
   github: "https://github.com/MaxenceRault",
-  linkedin: "www.linkedin.com/in/maxence-rault-b522b8291",
+  linkedin: "https://www.linkedin.com/in/maxence-rault-b522b8291/",
 };
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
