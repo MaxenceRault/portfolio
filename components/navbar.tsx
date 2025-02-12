@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import MenuItem from "./menu-items";
 import { GithubIcon, LinkedInIcon } from "./social-icons";
