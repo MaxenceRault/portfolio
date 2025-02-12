@@ -1,7 +1,6 @@
 "use client";
 import { ParticleCanvas } from "@/hooks/particle";
 import { motion } from "framer-motion";
-import Navbar from "@/components/navbar";
 import ProjectCard from "@/components/projectCard"; // Renommé pour plus de clarté
 
 export default function Projects() {
@@ -28,8 +27,7 @@ export default function Projects() {
     <div className="relative min-h-screen bg-black">
       {/* Fond animé */}
       <ParticleCanvas />
-      {/* Navbar */}
-      <Navbar />
+      
 
       <main className="relative max-w-7xl mx-auto px-6 py-20">
         {/* Titre animé */}

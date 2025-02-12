@@ -47,7 +47,7 @@ export default function Hero() {
               className="text-xl text-content/80 mb-8"
             >
               Passionate Full-Stack Developer specializing in React.js, Node.js,
-              and modern web technologies. Currently pursuing a Bachelor's
+              and modern web technologies. Currently pursuing a Bachelor&apos;s
               degree in Coding & Digital Innovation at IIM Digital School.
               Experienced in frontend and backend development, with a strong
               focus on creating scalable and intuitive web applications.
