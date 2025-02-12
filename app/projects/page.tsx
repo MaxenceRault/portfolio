@@ -5,8 +5,10 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 export default function Project() {
   return (
-    <Navbar/>
-    <Projects/>
-    <Footer/>
+    <div>
+      <Navbar/>
+      <Projects/>
+      <Footer/>
+    </div>
   );
 }
