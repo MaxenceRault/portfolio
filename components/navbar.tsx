@@ -1,12 +1,18 @@
 "use client";
 import { motion } from "framer-motion";
 import MenuItem from "./menu-items";
+import { GithubIcon, LinkedInIcon } from "./social-icons";
 
 const navItems = [
     {name: "Projects", href:'#work'},
     {name: "Skills" , href:'#skills'},
     {name: "Contact" , href:'#contact'},
 ]
+
+const socialLinks = {
+    github: "https://github.com/MaxenceRault",
+    linkedin: "www.linkedin.com/in/maxence-rault-b522b8291",
+}
 export default function Navbar() {
   return (
     <motion.nav
@@ -42,7 +48,27 @@ export default function Navbar() {
                     ))
                 }
             </div>
+            <div className="h-6 w-px bg-white/10 mx-2"></div>
+            <div className="flex gap-4">
+                <a href={socialLinks.github} 
+                className="p-2 rounded-lg bg-white/5 hover:bg-primary/10
+                transition-colors group">
+                    <GithubIcon 
+                    className="h-5 w-5 text-content/80 
+                    group-hover:text-primary transition-colors"/>
+
+                </a>
+                <a href={socialLinks.linkedin} 
+                className="p-2 rounded-lg bg-white/5 hover:bg-primary/10
+                transition-colors group">
+                    <LinkedInIcon
+                    className="h-5 w-5 text-content/80 
+                    group-hover:text-primary transition-colors"/>
+
+                </a>
+            </div>
           </div>
+          
         </div>
       </div>
     </motion.nav>
