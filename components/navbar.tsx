@@ -1,19 +1,22 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useState } from "react";
 import MenuItem from "./menu-items";
 import { GithubIcon, LinkedInIcon } from "./social-icons";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navItems = [
-    {name: "Projects", href:'#work'},
-    {name: "Skills" , href:'#skills'},
-    {name: "Contact" , href:'#contact'},
-]
+  { name: "Projects", href: "#work" },
+  { name: "Skills", href: "#skills" },
+  { name: "Contact", href: "#contact" },
+];
 
 const socialLinks = {
-    github: "https://github.com/MaxenceRault",
-    linkedin: "www.linkedin.com/in/maxence-rault-b522b8291",
-}
+  github: "https://github.com/MaxenceRault",
+  linkedin: "www.linkedin.com/in/maxence-rault-b522b8291",
+};
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -40,36 +43,92 @@ export default function Navbar() {
             </span>
           </motion.div>
           <div className="hidden md:flex items-center gap-6">
-            <div className="flex items-center gap-6 bg-background/80 px-4 py-2
-            rounded-full border border-white/5 shadow-lg shadow-primary/5">
-                {
-                    navItems.map((items,i )=>(
-                        <MenuItem key={items.name} index={i} href={items.href}>{items.name}</MenuItem>
-                    ))
-                }
+            <div
+              className="flex items-center gap-6 bg-background/80 px-4 py-2
+            rounded-full border border-white/5 shadow-lg shadow-primary/5"
+            >
+              {navItems.map((items, i) => (
+                <MenuItem key={items.name} index={i} href={items.href}>
+                  {items.name}
+                </MenuItem>
+              ))}
             </div>
             <div className="h-6 w-px bg-white/10 mx-2"></div>
             <div className="flex gap-4">
-                <a href={socialLinks.github} 
+              <a
+                href={socialLinks.github}
                 className="p-2 rounded-lg bg-white/5 hover:bg-primary/10
-                transition-colors group">
-                    <GithubIcon 
-                    className="h-5 w-5 text-content/80 
-                    group-hover:text-primary transition-colors"/>
-
-                </a>
-                <a href={socialLinks.linkedin} 
+                transition-colors group"
+              >
+                <GithubIcon
+                  className="h-5 w-5 text-content/80 
+                    group-hover:text-primary transition-colors"
+                />
+              </a>
+              <a
+                href={socialLinks.linkedin}
                 className="p-2 rounded-lg bg-white/5 hover:bg-primary/10
-                transition-colors group">
-                    <LinkedInIcon
-                    className="h-5 w-5 text-content/80 
-                    group-hover:text-primary transition-colors"/>
-
-                </a>
+                transition-colors group"
+              >
+                <LinkedInIcon
+                  className="h-5 w-5 text-content/80 
+                    group-hover:text-primary transition-colors"
+                />
+              </a>
             </div>
           </div>
-          
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 rounded-lg bg-white/5 hover:bg-primary/10 transition-colors"
+          >
+            {isMenuOpen ? (
+              <XMarkIcon className="h-6 w-6 text-content/80" />
+            ) : (
+              <Bars3Icon className="h-6 w-6 text-content/80" />
+            )}
+          </button>
         </div>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="md:hidden mt-4 pb-4 space-y-4"
+          >
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-4 py-2 text-content/80 hover:text-primary
+                     hover:bg-white/5 rounded-lg transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
+            <div className="pt-4 border-t border-white/5 flex gap-4">
+              <a
+                href={socialLinks.github}
+                className="p-2 rounded-lg bg-white/5 hover:bg-primary/10
+                transition-colors group"
+              >
+                <GithubIcon
+                  className="h-5 w-5 text-content/80 
+                    group-hover:text-primary transition-colors"
+                />
+              </a>
+              <a
+                href={socialLinks.linkedin}
+                className="p-2 rounded-lg bg-white/5 hover:bg-primary/10
+                transition-colors group"
+              >
+                <LinkedInIcon
+                  className="h-5 w-5 text-content/80 
+                    group-hover:text-primary transition-colors"
+                />
+              </a>
+            </div>
+          </motion.div>
+        )}
       </div>
     </motion.nav>
   );
