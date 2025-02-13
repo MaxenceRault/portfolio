@@ -1,13 +1,19 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-// Définition des sujets possibles
-const subjects = ["Demande générale", "Collaboration projet", "Signalement de bug", "Autre"];
+// Définition du type des données du formulaire
+interface ContactFormData {
+  name: string;
+  email: string;
+  subject: "Demande générale" | "Collaboration projet" | "Signalement de bug" | "Autre";
+  message: string;
+}
 
+// Définition du schéma de validation avec Zod
 const contactSchema = z.object({
   name: z.string().min(2, "Le nom est trop court"),
   email: z.string().email("Adresse email invalide"),
@@ -23,11 +29,11 @@ export default function HeroContact() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm({
+  } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit: SubmitHandler<ContactFormData> = async (data) => {
     setStatus("idle");
 
     try {
@@ -44,6 +50,7 @@ export default function HeroContact() {
         setStatus("error");
       }
     } catch (error) {
+      console.error("Erreur lors de l&apos;envoi du message:", error);
       setStatus("error");
     }
   };
@@ -86,7 +93,7 @@ export default function HeroContact() {
               transition={{ duration: 0.3 }}
               className="w-full px-4 py-3 bg-gray-700 text-white rounded-md border border-gray-600 focus:ring-2 focus:ring-primary focus:outline-none"
             />
-            {errors.name && <p className="text-red-500 text-sm mt-1">{String(errors.name.message)}</p>}
+            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
           </div>
 
           {/* Email */}
@@ -99,7 +106,7 @@ export default function HeroContact() {
               transition={{ duration: 0.3 }}
               className="w-full px-4 py-3 bg-gray-700 text-white rounded-md border border-gray-600 focus:ring-2 focus:ring-primary focus:outline-none"
             />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{String(errors.email.message)}</p>}
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
           </div>
 
           {/* Objet */}
@@ -111,13 +118,12 @@ export default function HeroContact() {
               transition={{ duration: 0.3 }}
               className="w-full px-4 py-3 bg-gray-700 text-white rounded-md border border-gray-600 focus:ring-2 focus:ring-primary focus:outline-none"
             >
-              {subjects.map((subject, index) => (
-                <option key={index} value={subject}>
-                  {subject}
-                </option>
-              ))}
+              <option value="Demande générale">Demande générale</option>
+              <option value="Collaboration projet">Collaboration projet</option>
+              <option value="Signalement de bug">Signalement de bug</option>
+              <option value="Autre">Autre</option>
             </motion.select>
-            {errors.subject && <p className="text-red-500 text-sm mt-1">{String(errors.subject.message)}</p>}
+            {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>}
           </div>
 
           {/* Message */}
@@ -130,7 +136,7 @@ export default function HeroContact() {
               transition={{ duration: 0.3 }}
               className="w-full px-4 py-3 bg-gray-700 text-white rounded-md border border-gray-600 focus:ring-2 focus:ring-primary focus:outline-none"
             />
-            {errors.message && <p className="text-red-500 text-sm mt-1">{String(errors.message.message)}</p>}
+            {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
           </div>
 
           {/* Bouton d'envoi */}
@@ -152,7 +158,7 @@ export default function HeroContact() {
           )}
           {status === "error" && (
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-red-500 text-center mt-2">
-              ❌ Échec de l'envoi du message. Réessayez.
+              ❌ Échec de l&apos;envoi du message. Réessayez.
             </motion.p>
           )}
         </motion.form>
