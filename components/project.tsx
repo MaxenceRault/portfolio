@@ -51,10 +51,10 @@ export default function Projects() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-primary via-secondary to-tertiary 
+          className="text-5xl md:text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-tertiary 
                      bg-clip-text text-transparent text-center mb-12"
         >
-          My Projects
+          Mes Projets
         </motion.h1>
 
         {/* Sous-titre animé */}

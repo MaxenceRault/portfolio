@@ -34,8 +34,8 @@ export default function HeroText() {
         transition={{ duration: 0.8, delay: 1.1 }}
         className="text-xl text-content/80 mb-8"
       >
-        Développeur Full-Stack spécialisé en **React.js, Node.js** et technologies modernes du web.  
-        Actuellement en **2ème année de Coding & Digital Innovation** à **IIM Digital School**.
+        Développeur Full-Stack spécialisé en React.js, Node.js et technologies modernes du web.  
+        Actuellement en 2ème année de Coding & Digital Innovation à IIM Digital School.
       </motion.p>
 
       <Link href="/projects">

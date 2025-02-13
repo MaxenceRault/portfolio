@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 interface ContactFormData {
   name: string;
   email: string;
-  subject: "Demande générale" | "Collaboration projet" | "Signalement de bug" | "Autre";
+  subject: "Demande de projet" | "Signalement de bug" | "Autre";
   message: string;
 }
 
@@ -17,7 +17,7 @@ interface ContactFormData {
 const contactSchema = z.object({
   name: z.string().min(2, "Le nom est trop court"),
   email: z.string().email("Adresse email invalide"),
-  subject: z.enum(["Demande générale", "Collaboration projet", "Signalement de bug", "Autre"]),
+  subject: z.enum(["Collaboration de projet", "Signalement de bug", "Autre"]),
   message: z.string().min(10, "Le message est trop court"),
 });
 
@@ -57,8 +57,7 @@ export default function HeroContact() {
 
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen px-6 py-16">
-      {/* Fond Visuel */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-90"></div>
+      
 
       {/* Conteneur du formulaire */}
       <motion.div
@@ -118,8 +117,8 @@ export default function HeroContact() {
               transition={{ duration: 0.3 }}
               className="w-full px-4 py-3 bg-gray-700 text-white rounded-md border border-gray-600 focus:ring-2 focus:ring-primary focus:outline-none"
             >
-              <option value="Demande générale">Demande générale</option>
-              <option value="Collaboration projet">Collaboration projet</option>
+              
+              <option value="Collaboration de projet">Collaboration de projet</option>
               <option value="Signalement de bug">Signalement de bug</option>
               <option value="Autre">Autre</option>
             </motion.select>
