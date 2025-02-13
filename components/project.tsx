@@ -21,6 +21,22 @@ export default function Projects() {
       githubUrl: "https://github.com/MaxenceRault/project2",
       liveUrl: "https://project2.example.com",
     },
+    {
+      title: "Project 2",
+      description: "Description of project 2",
+      imageUrl: "/images/project2.jpg",
+      videoUrl: "https://www.youtube.com/watch?v=example2",
+      githubUrl: "https://github.com/MaxenceRault/project2",
+      liveUrl: "https://project2.example.com",
+    },
+    {
+      title: "Project 2",
+      description: "Description of project 2",
+      imageUrl: "/images/project2.jpg",
+      videoUrl: "https://www.youtube.com/watch?v=example2",
+      githubUrl: "https://github.com/MaxenceRault/project2",
+      liveUrl: "https://project2.example.com",
+    },
   ];
 
   return (

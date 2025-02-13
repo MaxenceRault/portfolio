@@ -83,9 +83,11 @@ export function ParticleCanvas() {
   const canvasRef = useCanvas(draw);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none opacity-40"
-    />
+    <div className="fixed inset-0 w-full h-full pointer-events-none">
+      <canvas
+        ref={canvasRef}
+        className="w-full h-full opacity-40"
+      />
+    </div>
   );
 }

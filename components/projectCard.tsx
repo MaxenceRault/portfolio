@@ -22,7 +22,7 @@ export default function ProjectCard({
 }: ProjectProps) {
   return (
     <motion.div
-      className="relative group w-full   p-4"
+      className="relative group w-full p-4"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ scale: 1.05 }}
@@ -44,18 +44,18 @@ export default function ProjectCard({
           />
         </motion.div>
 
-        {/* Overlay Animé */}
+        {/* Texte et Liens */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="p-4"
         >
           <h3 className="text-xl font-bold text-white mb-2 text-center">{title}</h3>
           <p className="text-sm text-gray-300 mb-4 text-center">{description}</p>
 
           {/* Liens Boutons */}
-          <div className="flex gap-3">
+          <div className="flex gap-3 justify-center">
             <Link href={videoUrl} passHref>
               <motion.button
                 whileHover={{ scale: 1.1 }}
