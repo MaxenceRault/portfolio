@@ -22,7 +22,7 @@ export default function ProjectCard({
 }: ProjectProps) {
   return (
     <motion.div
-      className="relative group w-full sm:w-1/2 lg:w-1/3 p-4"
+      className="relative group w-full   p-4"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ scale: 1.05 }}

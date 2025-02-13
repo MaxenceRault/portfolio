@@ -6,12 +6,12 @@ import ProjectCard from "@/components/projectCard"; // Renommé pour plus de cla
 export default function Projects() {
   const projects = [
     {
-      title: "Project 1",
-      description: "Description of project 1",
-      imageUrl: "/images/project1.jpg",
+      title: "NikoGuitarLesson",
+      description: "Une web app en ReactJs et en NodeJs",
+      imageUrl: "/nikoguitarlesson.jpg",
       videoUrl: "https://www.youtube.com/watch?v=example1",
       githubUrl: "https://github.com/MaxenceRault/project1",
-      liveUrl: "https://project1.example.com",
+      liveUrl: "https://nikoguitarlesson.fr",
     },
     {
       title: "Project 2",
