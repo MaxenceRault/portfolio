@@ -9,7 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 interface ContactFormData {
   name: string;
   email: string;
-  subject: "Demande de projet" | "Signalement de bug" | "Autre";
+  subject: "Collaboration de projet" | "Signalement de bug" | "Autre";
+  customSubject?: string;
   message: string;
 }
 
@@ -18,6 +19,7 @@ const contactSchema = z.object({
   name: z.string().min(2, "Le nom est trop court"),
   email: z.string().email("Adresse email invalide"),
   subject: z.enum(["Collaboration de projet", "Signalement de bug", "Autre"]),
+  customSubject: z.string().optional(),
   message: z.string().min(10, "Le message est trop court"),
 });
 
@@ -27,11 +29,16 @@ export default function HeroContact() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   });
+
+  // Détection de la sélection en temps réel
+  const selectedSubject = watch("subject");
+  const showCustomSubject = selectedSubject === "Autre";
 
   const onSubmit: SubmitHandler<ContactFormData> = async (data) => {
     setStatus("idle");
@@ -50,15 +57,13 @@ export default function HeroContact() {
         setStatus("error");
       }
     } catch (error) {
-      console.error("Erreur lors de l&apos;envoi du message:", error);
+      console.error("Erreur lors de l'envoi du message:", error);
       setStatus("error");
     }
   };
 
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen px-6 py-16">
-      
-
       {/* Conteneur du formulaire */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -66,15 +71,6 @@ export default function HeroContact() {
         transition={{ duration: 1 }}
         className="relative z-10 max-w-3xl w-full p-8 bg-gray-800/80 backdrop-blur-md shadow-lg rounded-xl border border-white/10"
       >
-        {/* <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl font-bold text-primary text-center mb-6"
-        >
-          ✉️ Me Contacter
-        </motion.h2> */}
-
         <motion.form
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -117,13 +113,29 @@ export default function HeroContact() {
               transition={{ duration: 0.3 }}
               className="w-full px-4 py-3 bg-gray-700 text-white rounded-md border border-gray-600 focus:ring-2 focus:ring-primary focus:outline-none"
             >
-              
               <option value="Collaboration de projet">Collaboration de projet</option>
               <option value="Signalement de bug">Signalement de bug</option>
               <option value="Autre">Autre</option>
             </motion.select>
             {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>}
           </div>
+
+          {/* Champ personnalisé pour "Autre" */}
+          {showCustomSubject && (
+            <div>
+              <label className="block text-lg text-white mb-2">Objet personnalisé</label>
+              <motion.input
+                type="text"
+                {...register("customSubject", { required: "Veuillez entrer un objet personnalisé" })}
+                whileFocus={{ scale: 1.02, borderColor: "#0ea5e9" }}
+                transition={{ duration: 0.3 }}
+                className="w-full px-4 py-3 bg-gray-700 text-white rounded-md border border-gray-600 focus:ring-2 focus:ring-primary focus:outline-none"
+              />
+              {errors.customSubject && (
+                <p className="text-red-500 text-sm mt-1">{errors.customSubject.message}</p>
+              )}
+            </div>
+          )}
 
           {/* Message */}
           <div>
@@ -157,7 +169,7 @@ export default function HeroContact() {
           )}
           {status === "error" && (
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-red-500 text-center mt-2">
-              ❌ Échec de l&apos;envoi du message. Réessayez.
+              ❌ Échec de l'envoi du message. Réessayez.
             </motion.p>
           )}
         </motion.form>

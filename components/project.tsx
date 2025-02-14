@@ -32,10 +32,39 @@ export default function Projects() {
       description:
         "Un jeu Pokémon développé en PHP avec une architecture orientée objet (POO). Il utilise MySQL pour la gestion des données et JavaScript pour les fonctionnalités en temps réel. Ce projet met en place un système de combat entre Pokémon avec des statistiques dynamiques, une gestion de l'inventaire, et une interface interactive permettant aux joueurs de sélectionner leurs actions en temps réel. Les données des combats et des Pokémon sont stockées et récupérées depuis une base de données MySQL, assurant la persistance et l'évolution des créatures. L'utilisation de JavaScript permet de gérer les interactions et mises à jour sans rechargement de page, rendant l'expérience fluide et immersive.",
       imageUrl: "/images_projet/pokemon.png",
-      videoUrl: "/videos/pokemon_game.mp4",
+      videoUrl: "/videos/pokemon.mp4",
       githubUrl: "https://github.com/MaxenceRault/Pokemon_game",
       liveUrl: "None",
     },
+    {
+      title: "Symfony E-Commerce",
+      description:
+        "Une plateforme e-commerce développée avec Symfony, intégrant une gestion avancée des utilisateurs et des commandes. Ce projet permet aux clients de parcourir un catalogue de produits, d'ajouter des articles à leur panier et de finaliser leurs achats via un système de paiement sécurisé. Un tableau de bord administrateur offre un suivi en temps réel des commandes inachevées, des utilisateurs inscrits dans la journée et des ventes globales. L'interface est dynamique grâce à Twig et JavaScript, et l'expérience utilisateur est optimisée avec un système multilingue permettant de changer de langue en temps réel. La gestion des rôles et permissions assure une séparation claire entre les clients et les administrateurs, garantissant un contrôle total sur la boutique en ligne.",
+      imageUrl: "/images_projet/symfony.png",
+      videoUrl: "/videos/symfony.mp4",
+      githubUrl: "https://github.com/MaxenceRault/Symfony",
+      liveUrl: "None",
+    },
+    {
+      title: "To-Do List Project",
+      description:
+        "Une application de gestion de tâches développée en TypeScript avec une architecture robuste et sécurisée. Cette To-Do List permet aux utilisateurs de créer, modifier et supprimer leurs tâches en toute simplicité, tout en garantissant une gestion sécurisée des comptes utilisateurs grâce à une authentification sécurisée. L'application repose sur Prisma pour la gestion des données, avec une base de données relationnelle connectée dynamiquement. L'interface utilisateur est fluide et optimisée pour une expérience intuitive et rapide. Ce projet illustre une approche moderne du développement web, en combinant des technologies performantes pour une application efficace et évolutive.",
+      imageUrl: "/images_projet/TODOTODO.png",
+      videoUrl: "/videos/TODOTODO.mp4",
+      githubUrl: "https://github.com/MaxenceRault/TypeScript",
+      liveUrl: "None",
+    },
+    {
+      title: "HarryPottCard",
+      description:
+        "HarryPottCard est une plateforme interactive permettant aux utilisateurs de collectionner, ouvrir des packs et échanger des cartes inspirées de l'univers de Harry Potter. Développée en HTML, CSS et JavaScript pour le front-end, cette application repose sur un back-end en Node.js avec Prisma et une base de données relationnelle pour assurer une gestion sécurisée et efficace des cartes et des échanges. Grâce à une interface intuitive et une gestion dynamique des cartes, les utilisateurs peuvent interagir en temps réel avec d'autres joueurs pour échanger leurs cartes et compléter leur collection.",
+      imageUrl: "/images_projet/HarryPotter.png",
+      videoUrl: "/videos/HarryPottcard.mp4",
+      githubUrl: "None",
+      liveUrl: "None",
+    },
+
+
 
     
   ];
