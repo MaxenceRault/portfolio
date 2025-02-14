@@ -169,7 +169,7 @@ export default function HeroContact() {
           )}
           {status === "error" && (
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-red-500 text-center mt-2">
-              ❌ Échec de l'envoi du message. Réessayez.
+              ❌ Échec de l&apos;envoi du message. Réessayez.
             </motion.p>
           )}
         </motion.form>
