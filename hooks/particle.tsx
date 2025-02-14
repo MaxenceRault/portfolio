@@ -1,6 +1,6 @@
-'use client';
-import { useCanvas } from '@/hooks/useCanvas';
-import { useCallback, useRef } from 'react';
+"use client";
+import { useCanvas } from "@/hooks/useCanvas";
+import { useCallback, useRef } from "react";
 
 class Particle {
   x: number;
@@ -17,9 +17,9 @@ class Particle {
       x: (Math.random() - 0.5) * 2,
       y: (Math.random() - 0.5) * 2
     };
-    this.radius = Math.random() * 1.5 + 0.5;
-    this.color = `rgba(10, 20, 60, 0.8)`; // Bleu nuit profond
-    this.glowColor = `rgba(0, 50, 150, 0.5)`; // Effet de lueur bleue légère
+    this.radius = Math.random() * 2 + 1; // Particules légèrement plus grandes
+    this.color = `rgba(10, 20, 60, 0.9)`; // Couleur inchangée mais plus opaque
+    this.glowColor = `rgba(0, 50, 150, 1)`; // Lueur plus intense
   }
 
   update(ctx: CanvasRenderingContext2D) {
@@ -31,7 +31,7 @@ class Particle {
   }
 
   draw(ctx: CanvasRenderingContext2D) {
-    ctx.shadowBlur = 10; // Effet de lueur néon léger
+    ctx.shadowBlur = 25; // Augmentation de l'effet de lueur pour plus de visibilité
     ctx.shadowColor = this.glowColor;
 
     ctx.beginPath();
@@ -51,8 +51,8 @@ export function ParticleCanvas() {
       particles.current = Array.from({ length: 50 }, () => new Particle(ctx));
     }
 
-    // Effet de traînée plus sombre
-    ctx.fillStyle = 'rgba(5, 5, 15, 0.08)';
+    // Effet de traînée plus visible
+    ctx.fillStyle = 'rgba(5, 5, 15, 0.15)'; // Réduction de la transparence pour améliorer le contraste
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
     // Mise à jour et affichage des particules
@@ -61,9 +61,9 @@ export function ParticleCanvas() {
       particle.draw(ctx);
     });
 
-    // Création des lignes de connexion avec effet lumineux
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(0, 200, 255, 0.1)'; // Cyan lumineux pour l'effet néon
+    // Création des lignes de connexion avec effet lumineux renforcé
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = 'rgba(0, 50, 150, 0.5)'; // Augmentation de la visibilité des connexions
     for (let i = 0; i < particles.current.length; i++) {
       for (let j = i; j < particles.current.length; j++) {
         const dx = particles.current[i].x - particles.current[j].x;
@@ -84,10 +84,7 @@ export function ParticleCanvas() {
 
   return (
     <div className="fixed inset-0 w-full h-full pointer-events-none">
-      <canvas
-        ref={canvasRef}
-        className="w-full h-full opacity-40"
-      />
+      <canvas ref={canvasRef} className="w-full h-full opacity-50" />
     </div>
   );
 }

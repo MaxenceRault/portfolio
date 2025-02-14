@@ -20,7 +20,7 @@ const educationData = [
 export default function HeroEducation() {
   return (
     <div className="relative max-w-4xl mx-auto mt-16">
-      <h2 className="text-3xl font-bold text-primary text-center mb-6">🎓 Mon Parcours</h2>
+      
 
       {/* Frise technologique */}
       <div className="relative border-l-4 border-primary pl-6 space-y-8">

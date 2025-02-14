@@ -6,6 +6,7 @@ import HeroBackground from "./heroBackground";
 import HeroEducation from "./heroEducation";
 import HeroSkills from "./heroSkills";
 import HeroContact from "./heroContact";
+import AnimatedDivider from "@/components/animatedDivider";
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -26,15 +27,22 @@ export default function Hero() {
             <HeroImage />
           </motion.div>
         </div>
+        
+        <AnimatedDivider text="🚀 Mon Parcours" />
 
         {/* Formation suivie */}
         <div className="mt-40">
           <HeroEducation />
         </div>
 
+        <AnimatedDivider text="💡 Mes Compétences" />
+
         {/* Skills */}
         <HeroSkills />
 
+        <AnimatedDivider text="✉️ Me Contacter" />
+
+        {/* Contact Form */}  
         <HeroContact />
       </div>
     </section>

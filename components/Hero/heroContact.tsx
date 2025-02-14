@@ -66,14 +66,14 @@ export default function HeroContact() {
         transition={{ duration: 1 }}
         className="relative z-10 max-w-3xl w-full p-8 bg-gray-800/80 backdrop-blur-md shadow-lg rounded-xl border border-white/10"
       >
-        <motion.h2
+        {/* <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-3xl font-bold text-primary text-center mb-6"
         >
           ✉️ Me Contacter
-        </motion.h2>
+        </motion.h2> */}
 
         <motion.form
           initial={{ opacity: 0, y: 20 }}
