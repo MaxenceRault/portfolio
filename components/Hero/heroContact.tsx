@@ -57,7 +57,7 @@ export default function HeroContact() {
         setStatus("error");
       }
     } catch (error) {
-      console.error("Erreur lors de l'envoi du message:", error);
+      console.error("Erreur lors de l&apos;envoi du message:", error);
       setStatus("error");
     }
   };
