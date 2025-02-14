@@ -17,9 +17,9 @@ class Particle {
       x: (Math.random() - 0.5) * 2,
       y: (Math.random() - 0.5) * 2
     };
-    this.radius = Math.random() * 2 + 1; // Particules légèrement plus grandes
-    this.color = `rgba(10, 20, 60, 0.9)`; // Couleur inchangée mais plus opaque
-    this.glowColor = `rgba(0, 50, 150, 1)`; // Lueur plus intense
+    this.radius = Math.random() * 2.2 + 1.2; // Légère augmentation de la taille
+    this.color = `rgba(20, 40, 100, 0.95)`; // Bleu nuit légèrement plus clair
+    this.glowColor = `rgba(50, 120, 255, 0.9)`; // Lueur plus intense
   }
 
   update(ctx: CanvasRenderingContext2D) {
@@ -31,7 +31,7 @@ class Particle {
   }
 
   draw(ctx: CanvasRenderingContext2D) {
-    ctx.shadowBlur = 25; // Augmentation de l'effet de lueur pour plus de visibilité
+    ctx.shadowBlur = 30; // Augmentation de la lueur
     ctx.shadowColor = this.glowColor;
 
     ctx.beginPath();
@@ -48,11 +48,11 @@ export function ParticleCanvas() {
 
   const draw = useCallback((ctx: CanvasRenderingContext2D) => {
     if (particles.current.length === 0) {
-      particles.current = Array.from({ length: 50 }, () => new Particle(ctx));
+      particles.current = Array.from({ length: 55 }, () => new Particle(ctx)); // Légère augmentation du nombre de particules
     }
 
-    // Effet de traînée plus visible
-    ctx.fillStyle = 'rgba(5, 5, 15, 0.15)'; // Réduction de la transparence pour améliorer le contraste
+    // Effet de traînée plus clair et plus contrasté
+    ctx.fillStyle = 'rgba(5, 5, 15, 0.12)'; // Fond légèrement plus lumineux
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
     // Mise à jour et affichage des particules
@@ -62,15 +62,15 @@ export function ParticleCanvas() {
     });
 
     // Création des lignes de connexion avec effet lumineux renforcé
-    ctx.lineWidth = 1.5;
-    ctx.strokeStyle = 'rgba(0, 50, 150, 0.5)'; // Augmentation de la visibilité des connexions
+    ctx.lineWidth = 1.8;
+    ctx.strokeStyle = 'rgba(40, 75, 255, 0.6)'; // Bleu plus intense pour les connexions
     for (let i = 0; i < particles.current.length; i++) {
       for (let j = i; j < particles.current.length; j++) {
         const dx = particles.current[i].x - particles.current[j].x;
         const dy = particles.current[i].y - particles.current[j].y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 100) {
+        if (distance < 110) {
           ctx.beginPath();
           ctx.moveTo(particles.current[i].x, particles.current[i].y);
           ctx.lineTo(particles.current[j].x, particles.current[j].y);
@@ -84,7 +84,7 @@ export function ParticleCanvas() {
 
   return (
     <div className="fixed inset-0 w-full h-full pointer-events-none">
-      <canvas ref={canvasRef} className="w-full h-full opacity-50" />
+      <canvas ref={canvasRef} className="w-full h-full opacity-55" />
     </div>
   );
 }
