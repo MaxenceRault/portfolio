@@ -1,28 +1,25 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 
 interface ProjectProps {
   title: string;
   description: string;
   imageUrl: string;
-  videoUrl: string;
-  githubUrl: string;
-  liveUrl: string;
+  isSelected: boolean;
+  onSelect: () => void;
 }
 
 export default function ProjectCard({
   title,
   description,
   imageUrl,
-  videoUrl,
-  githubUrl,
-  liveUrl,
+  isSelected,
+  onSelect,
 }: ProjectProps) {
   return (
     <motion.div
-      className="relative group w-full p-4"
+      className="relative group w-80 p-2"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ scale: 1.05 }}
@@ -40,48 +37,31 @@ export default function ProjectCard({
             alt={title}
             width={400}
             height={300}
-            className="object-cover w-full h-48 transition-transform duration-500"
+            className="object-cover w-full h-40 transition-transform duration-500"
           />
         </motion.div>
 
-        {/* Texte et Liens */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="p-4"
-        >
-          <h3 className="text-xl font-bold text-white mb-2 text-center">{title}</h3>
-          <p className="text-sm text-gray-300 mb-4 text-center">{description}</p>
+        {/* Titre & Description courte */}
+        <div className="p-4">
+          <h3 className="text-lg font-bold text-white text-center">{title}</h3>
+          <p className="text-sm text-gray-300 text-center mt-2">
+            {description.substring(0, 50)}...
+          </p>
 
-          {/* Liens Boutons */}
-          <div className="flex gap-3 justify-center">
-            <Link href={videoUrl} passHref>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className="text-primary hover:underline transition"
-              >
-                🎥 Watch Video
-              </motion.button>
-            </Link>
-            <Link href={githubUrl} passHref>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className="text-primary hover:underline transition"
-              >
-                💻 GitHub
-              </motion.button>
-            </Link>
-            <Link href={liveUrl} passHref>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className="text-primary hover:underline transition"
-              >
-                🚀 Live Site
-              </motion.button>
-            </Link>
+          {/* ✅ Bouton "Voir les détails" */}
+          <div className="flex justify-center mt-4">
+            <motion.button
+              onClick={onSelect}
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+              className={`px-4 py-2 text-white rounded-lg shadow-md transition ${
+                isSelected ? "bg-secondary" : "bg-primary hover:bg-secondary"
+              }`}
+            >
+              {isSelected ? "Masquer les détails" : "Voir les détails"}
+            </motion.button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );
