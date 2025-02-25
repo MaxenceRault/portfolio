@@ -58,7 +58,7 @@ export default function Projects() {
       title: "HarryPottCard",
       description:
         "HarryPottCard est une plateforme interactive permettant aux utilisateurs de collectionner, ouvrir des packs et échanger des cartes inspirées de l'univers de Harry Potter. Développée en HTML, CSS et JavaScript pour le front-end, cette application repose sur un back-end en Node.js avec Prisma et une base de données relationnelle pour assurer une gestion sécurisée et efficace des cartes et des échanges. Grâce à une interface intuitive et une gestion dynamique des cartes, les utilisateurs peuvent interagir en temps réel avec d'autres joueurs pour échanger leurs cartes et compléter leur collection.",
-      imageUrl: "/images_projet/HarryPotter.png",
+      imageUrl: "/images_projet/Harrypotter.png",
       videoUrl: "/videos/HarryPottcard.mp4",
       githubUrl: "None",
       liveUrl: "None",

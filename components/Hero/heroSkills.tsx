@@ -6,8 +6,8 @@ export default function HeroSkills() {
 const hardSkills = [
     { name: "HTML", icon: "/icons/HTML.svg" },
     { name: "CSS", icon: "/icons/CSS.svg" },
-    { name: "JavaScript", icon: "/icons/Javascript.svg" },
-    { name: "TypeScript", icon: "/icons/Typescript.svg" },
+    { name: "JavaScript", icon: "/icons/JavaScript.svg" },
+    { name: "TypeScript", icon: "/icons/TypeScript.svg" },
     { name: "React", icon: "/icons/React-Dark.svg" },
     { name: "Node.js", icon: "/icons/NodeJS-Dark.svg" },
     { name: "PHP", icon: "/icons/PHP-Dark.svg" },
