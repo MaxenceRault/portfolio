@@ -21,9 +21,9 @@ const hardSkills = [
 ];
 
   const softSkills = [
-    "Problem Solving",
+    "Résolution de Problèmes",
     "Communication",
-    "Adaptability",
+    "Adaptabilité",
     "Collaboration",
     "Design Thinking",
     "Gestion de projet",
