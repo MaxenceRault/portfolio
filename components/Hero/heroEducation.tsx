@@ -33,9 +33,9 @@ const professionalData = [
 ];
 
 export default function HeroEducation() {
-  const [activeTab, setActiveTab] = useState("education");
+  const [activeTab, setActiveTab] = useState("Éducation");
 
-  const data = activeTab === "education" ? educationData : professionalData;
+  const data = activeTab === "Éducation" ? educationData : professionalData;
 
   return (
     <div className="relative max-w-4xl mx-auto mt-16">
