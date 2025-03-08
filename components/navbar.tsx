@@ -6,10 +6,8 @@ import { GithubIcon, LinkedInIcon } from "./social-icons";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navItems = [
-  { name: "About", href: "/" },
-  { name: "Projects", href: "/projects" },
-  
-  
+  { name: "Accueil", href: "/" },
+  { name: "Projets", href: "/projects" },
 ];
 
 const socialLinks = {
@@ -60,6 +58,7 @@ export default function Navbar() {
                 href={socialLinks.github}
                 className="p-2 rounded-lg bg-white/5 hover:bg-primary/10
                 transition-colors group"
+                target="_blank"
               >
                 <GithubIcon
                   className="h-5 w-5 text-content/80 
@@ -70,6 +69,7 @@ export default function Navbar() {
                 href={socialLinks.linkedin}
                 className="p-2 rounded-lg bg-white/5 hover:bg-primary/10
                 transition-colors group"
+                target="_blank"
               >
                 <LinkedInIcon
                   className="h-5 w-5 text-content/80 

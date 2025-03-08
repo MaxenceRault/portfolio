@@ -17,9 +17,9 @@ class Particle {
       x: (Math.random() - 0.5) * 2,
       y: (Math.random() - 0.5) * 2
     };
-    this.radius = Math.random() * 2.2 + 1.2; // Légère augmentation de la taille
-    this.color = `rgba(20, 40, 100, 0.95)`; // Bleu nuit légèrement plus clair
-    this.glowColor = `rgba(50, 120, 255, 0.9)`; // Lueur plus intense
+    this.radius = Math.random() * 2.2 + 1.2; 
+    this.color = `rgba(20, 40, 100, 0.95)`; // Bleu nuit
+    this.glowColor = `rgba(50, 120, 255, 0.9)`; 
   }
 
   update(ctx: CanvasRenderingContext2D) {
@@ -39,7 +39,7 @@ class Particle {
     ctx.fillStyle = this.color;
     ctx.fill();
 
-    ctx.shadowBlur = 0; // Désactiver après chaque particule
+    ctx.shadowBlur = 0; 
   }
 }
 
@@ -52,7 +52,7 @@ export function ParticleCanvas() {
     }
 
     // Effet de traînée plus clair et plus contrasté
-    ctx.fillStyle = 'rgba(5, 5, 15, 0.12)'; // Fond légèrement plus lumineux
+    ctx.fillStyle = 'rgba(5, 5, 15, 0.12)'; 
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
     // Mise à jour et affichage des particules
@@ -63,7 +63,7 @@ export function ParticleCanvas() {
 
     // Création des lignes de connexion avec effet lumineux renforcé
     ctx.lineWidth = 1.8;
-    ctx.strokeStyle = 'rgba(40, 75, 255, 0.6)'; // Bleu plus intense pour les connexions
+    ctx.strokeStyle = 'rgba(40, 75, 255, 0.6)'; 
     for (let i = 0; i < particles.current.length; i++) {
       for (let j = i; j < particles.current.length; j++) {
         const dx = particles.current[i].x - particles.current[j].x;

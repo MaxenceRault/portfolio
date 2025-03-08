@@ -35,7 +35,7 @@ export default function HeroImage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
-        {/* Location Text */}
+        {/* Text de lcalisation ( optionnel )
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -61,7 +61,7 @@ export default function HeroImage() {
               Montesson, France
             </motion.span>
           </div>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </div>
   );

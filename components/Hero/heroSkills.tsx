@@ -8,7 +8,7 @@ const hardSkills = [
     { name: "CSS", icon: "/icons/CSS.svg" },
     { name: "JavaScript", icon: "/icons/JavaScript.svg" },
     { name: "TypeScript", icon: "/icons/TypeScript.svg" },
-    { name: "React", icon: "/icons/React-Dark.svg" },
+    { name: "React.js", icon: "/icons/React-Dark.svg" },
     { name: "Node.js", icon: "/icons/NodeJS-Dark.svg" },
     { name: "PHP", icon: "/icons/PHP-Dark.svg" },
     { name: "MySQL", icon: "/icons/MySQL-Dark.svg" },
@@ -25,7 +25,9 @@ const hardSkills = [
     "Communication",
     "Adaptability",
     "Collaboration",
-    "Creativity",
+    "Design Thinking",
+    "Gestion de projet",
+    "Leadership",
   ];
 
   return (
@@ -38,7 +40,7 @@ const hardSkills = [
         viewport={{ once: true }}
         className="relative bg-gradient-to-b from-gray-900 to-black p-8 rounded-xl shadow-lg border border-white/20"
       >
-        {/* Effet de lueur */}
+        
         <div className="absolute inset-0 bg-primary/10 blur-3xl opacity-40"></div>
 
         <h2 className="text-3xl font-bold text-primary mb-6 text-center">🛠 Hard Skills</h2>
@@ -58,7 +60,7 @@ const hardSkills = [
         viewport={{ once: true }}
         className="relative bg-gradient-to-b from-gray-900 to-black p-8 rounded-xl shadow-lg border border-white/20"
       >
-        {/* Effet de lueur */}
+        
         <div className="absolute inset-0 bg-secondary/10 blur-3xl opacity-40"></div>
 
         <h2 className="text-3xl font-bold text-secondary mb-6 text-center">💡 Soft Skills</h2>

@@ -6,7 +6,7 @@ const educationData = [
         year: "2023 - Présent",
         title: "IIM Digital School",
         description: "Bachelor Coding & Digital Innovation",
-        tech: ["JavaScript", "ReactJS", "Node.js", "PHP", "MySQL", "Symfony", "NextJS", "TailwindCSS", "Figma", "Sass"],
+        tech: ["JavaScript", "ReactJS", "Node.js", "PHP", "MySQL", "Symfony", "NextJS", "TailwindCSS", "Figma", "Sass", "Git", "TypeScript"]
     },
     {
         year: "2020 - 2023",
