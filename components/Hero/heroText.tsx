@@ -36,8 +36,8 @@ export default function HeroText() {
       >
         Développeur Full-Stack spécialisé en React.js, Node.js et technologies
         modernes du web. Actuellement en 2ème année de Coding & Digital
-        Innovation à IIM Digital School.Actuellement à la recherche de stage de
-        3 à 4 mois à partir d'avril 2025 et d'une alternance à partir de
+        Innovation à IIM Digital School. Actuellement à la recherche de stage de
+        3 à 4 mois à partir d&apos;avril 2025 et d&apos;une alternance à partir de
         septembre 2025.
       </motion.p>
 
