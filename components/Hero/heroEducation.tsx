@@ -18,7 +18,31 @@ const educationData = [
 ];
 
 const professionalData = [
+
   {
+    year : "Mars 2025 - Juin 2025",
+    title: "Analyste Front End",
+    description: "Mise en place d'une web app en next js pour la relation sur la plateforme Arimayi",
+    tech: ["NextJS","Redux", "AntDesign"],
+
+  },  
+  {
+    year : "Janvier 2025 - Mars 2025",
+    title: "Bourse aux Projets",
+    description: "Chef de Projet",
+    tech: ["Gestion de projet", "Communication", "Organisation", "Leadership"],
+
+  },  
+
+  {
+    year : "Septembre 2024 - Décembre 2024",
+    title: "Bourse aux Projets",
+    description: "Développeur Front End",
+    tech: ["ReactJS", "TailwindCSS", "Git"],
+
+  },  
+
+  { 
     year: "Été 2024",
     title: "Saisonnier Intermarché",
     description: "Employé mise en place rayon frais",
