@@ -22,7 +22,7 @@ const professionalData = [
   {
     year : "Mars 2025 - Juin 2025",
     title: "Analyste Front End",
-    description: "Mise en place d'une web app en next js pour la relation sur la plateforme Arimayi",
+    description: "Mise en place d'une web app en NextJS sur la plateforme Arimayi",
     tech: ["NextJS","Redux", "AntDesign"],
 
   },  
